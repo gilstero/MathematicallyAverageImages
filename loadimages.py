@@ -4,8 +4,9 @@ import os
 
 def load_images(image_paths):
     images = []
-    for path in image_paths:
-        img = cv2.imread(path)
+    for path in os.listdir(image_paths):
+        file_path = os.path.join(image_paths, path)
+        img = cv2.imread(file_path)
         if img is not None:
             images.append(img)
         else:
